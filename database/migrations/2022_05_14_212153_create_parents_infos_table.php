@@ -14,7 +14,7 @@ class CreateParentsInfosTable extends Migration
     public function up()
     {
         Schema::create('parents_infos', function (Blueprint $table) {
-            $table->integer('id_parent')->primary();
+            $table->integer('id_parent')->autoIncrement();
             $table->timestamp('created_at')->nullable();
         });
     }

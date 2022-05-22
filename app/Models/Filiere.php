@@ -17,10 +17,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $code_filiere
  * @property string $libelle_filiere
  * @property Carbon $created_at
- * @property int $cyclesid_cycle
+ * @property int $cycles_id_cycle
  * 
  * @property Cycle $cycle
- * @property Collection|Avi[] $avis
+ * @property Collection|Avis[] $avis
  * @property Collection|Etudiant[] $etudiants
  * @property Collection|Evaluation[] $evaluations
  * @property Collection|Module[] $modules
@@ -35,23 +35,23 @@ class Filiere extends Model
 	public $timestamps = false;
 
 	protected $casts = [
-		'cyclesid_cycle' => 'int'
+		'cycles_id_cycle' => 'int'
 	];
 
 	protected $fillable = [
 		'code_filiere',
 		'libelle_filiere',
-		'cyclesid_cycle'
+		'cycles_id_cycle'
 	];
 
 	public function cycle()
 	{
-		return $this->belongsTo(Cycle::class, 'cyclesid_cycle');
+		return $this->belongsTo(Cycle::class, 'cycles_id_cycle');
 	}
 
 	public function avis()
 	{
-		return $this->hasMany(Avi::class, 'filieresid_filiere');
+		return $this->hasMany(Avis::class, 'filieres_id_filiere');
 	}
 
 	public function etudiants()
@@ -66,7 +66,7 @@ class Filiere extends Model
 
 	public function modules()
 	{
-		return $this->hasMany(Module::class, 'filieresid_filiere');
+		return $this->hasMany(Module::class, 'filieres_id_filiere');
 	}
 
 	public function seances()

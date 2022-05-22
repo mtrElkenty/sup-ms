@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $etudiants_id_etudiant
  * @property int $frais_id_frais
  * 
- * @property Frai $frai
+ * @property Frais $frais
  * @property Etudiant $etudiant
  *
  * @package App\Models
@@ -44,9 +44,9 @@ class PaiementEtudiant extends Model
 		'frais_id_frais'
 	];
 
-	public function frai()
+	public function frais()
 	{
-		return $this->belongsTo(Frai::class, 'frais_id_frais');
+		return $this->belongsTo(Frais::class, 'frais_id_frais');
 	}
 
 	public function etudiant()

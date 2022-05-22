@@ -14,7 +14,7 @@ class CreateEtudiantsTable extends Migration
     public function up()
     {
         Schema::create('etudiants', function (Blueprint $table) {
-            $table->bigInteger('id_etudiant')->primary();
+            $table->bigInteger('id_etudiant')->autoIncrement();
             $table->string('matricule')->unique('matricule');
             $table->string('nom');
             $table->string('prenom');
@@ -28,14 +28,14 @@ class CreateEtudiantsTable extends Migration
             $table->date('date_naissance');
             $table->string('lieu_naissance');
             $table->string('situation_famille');
-            $table->timestamp('created_at')->default('current_timestamp()');
+            $table->timestamp('created_at')->useCurrent();
             $table->integer('parents_infos_id_parent');
-            $table->integer('niveaus_id_niveau');
+            $table->integer('niveaux_id_niveau');
             $table->integer('filieres_id_filiere');
-            
+
             $table->foreign('filieres_id_filiere', 'FKetudiants135037')->references('id_filiere')->on('filieres');
             $table->foreign('parents_infos_id_parent', 'FKetudiants563462')->references('id_parent')->on('parents_infos');
-            $table->foreign('niveaus_id_niveau', 'FKetudiants847096')->references('id_niveau')->on('niveaus');
+            $table->foreign('niveaux_id_niveau', 'FKetudiants847096')->references('id_niveau')->on('niveaux');
         });
     }
 

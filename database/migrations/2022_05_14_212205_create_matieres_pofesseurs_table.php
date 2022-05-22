@@ -14,11 +14,11 @@ class CreateMatieresPofesseursTable extends Migration
     public function up()
     {
         Schema::create('matieres_pofesseurs', function (Blueprint $table) {
-            $table->integer('id_matiere_pofesseur')->primary();
+            $table->integer('id_matiere_pofesseur')->autoIncrement();
             $table->integer('matieres_id_matiere');
             $table->integer('professeurs_id_professeur');
-            $table->timestamp('created_at')->default('current_timestamp()');
-            
+            $table->timestamp('created_at')->useCurrent();
+
             $table->foreign('matieres_id_matiere', 'FKmatieres_p174722')->references('id_matiere')->on('matieres');
             $table->foreign('professeurs_id_professeur', 'FKmatieres_p729565')->references('id_professeur')->on('professeurs');
         });

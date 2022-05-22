@@ -14,13 +14,13 @@ class CreateMatieresTable extends Migration
     public function up()
     {
         Schema::create('matieres', function (Blueprint $table) {
-            $table->integer('id_matiere')->primary();
+            $table->integer('id_matiere')->autoIncrement();
             $table->string('code_matiere')->unique('code_matiere');
             $table->string('libelle_matiere');
             $table->integer('coefficient');
-            $table->timestamp('created_at')->default('current_timestamp()');
+            $table->timestamp('created_at')->useCurrent();
             $table->integer('modules_id_modules');
-            
+
             $table->foreign('modules_id_modules', 'FKmatieres572677')->references('id_modules')->on('modules');
         });
     }

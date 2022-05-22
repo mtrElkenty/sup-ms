@@ -14,13 +14,13 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->integer('id_user')->primary();
+            $table->integer('id_user')->autoIncrement();
             $table->string('username')->unique('username');
             $table->text('password');
-            $table->timestamp('created_at')->nullable()->default('current_timestamp()');
+            $table->timestamp('created_at')->useCurrent();
             $table->integer('employees_id_employee');
             $table->integer('roles_id_role');
-            
+
             $table->foreign('employees_id_employee', 'FKusers175237')->references('id_employee')->on('employees');
             $table->foreign('roles_id_role', 'FKusers917132')->references('id_role')->on('roles');
         });

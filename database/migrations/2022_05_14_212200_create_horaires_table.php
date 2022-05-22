@@ -14,10 +14,10 @@ class CreateHorairesTable extends Migration
     public function up()
     {
         Schema::create('horaires', function (Blueprint $table) {
-            $table->integer('id_horaire')->primary();
+            $table->integer('id_horaire')->autoIncrement();
             $table->time('du')->unique('du');
             $table->time('a')->unique('a');
-            $table->timestamp('created_at')->default('current_timestamp()');
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

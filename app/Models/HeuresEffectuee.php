@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $id_heure_effectuee
  * @property Carbon $created_at
- * @property int $professeursid_professeur
+ * @property int $professeurs_id_professeur
  * 
  * @property Professeur $professeur
  *
@@ -27,15 +27,15 @@ class HeuresEffectuee extends Model
 	public $timestamps = false;
 
 	protected $casts = [
-		'professeursid_professeur' => 'int'
+		'professeurs_id_professeur' => 'int'
 	];
 
 	protected $fillable = [
-		'professeursid_professeur'
+		'professeurs_id_professeur'
 	];
 
 	public function professeur()
 	{
-		return $this->belongsTo(Professeur::class, 'professeursid_professeur');
+		return $this->belongsTo(Professeur::class, 'professeurs_id_professeur');
 	}
 }

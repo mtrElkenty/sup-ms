@@ -14,10 +14,10 @@ class CreateRolesTable extends Migration
     public function up()
     {
         Schema::create('roles', function (Blueprint $table) {
-            $table->integer('id_role')->primary();
+            $table->integer('id_role')->autoIncrement();
             $table->string('role')->unique('role');
             $table->text('description')->nullable();
-            $table->timestamp('created_at')->default('current_timestamp()');
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

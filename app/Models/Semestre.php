@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id_semestre
  * @property string $libelle_semestre
  * @property Carbon|null $created_at
- * @property int $niveaus_id_niveau
+ * @property int $niveaux_id_niveau
  * 
  * @property Niveau $niveau
  * @property Collection|Evaluation[] $evaluations
@@ -32,27 +32,27 @@ class Semestre extends Model
 	public $timestamps = false;
 
 	protected $casts = [
-		'niveaus_id_niveau' => 'int'
+		'niveaux_id_niveau' => 'int'
 	];
 
 	protected $fillable = [
 		'libelle_semestre',
-		'niveaus_id_niveau'
+		'niveaux_id_niveau'
 	];
 
 	public function niveau()
 	{
-		return $this->belongsTo(Niveau::class, 'niveaus_id_niveau');
+		return $this->belongsTo(Niveau::class, 'niveaux_id_niveau');
 	}
 
 	public function evaluations()
 	{
-		return $this->hasMany(Evaluation::class, 'semestresid_semestre');
+		return $this->hasMany(Evaluation::class, 'semestres_id_semestre');
 	}
 
 	public function modules()
 	{
-		return $this->hasMany(Module::class, 'semestresid_semestre');
+		return $this->hasMany(Module::class, 'semestres_id_semestre');
 	}
 
 	public function notes()

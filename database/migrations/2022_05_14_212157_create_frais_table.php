@@ -14,15 +14,15 @@ class CreateFraisTable extends Migration
     public function up()
     {
         Schema::create('frais', function (Blueprint $table) {
-            $table->integer('id_frais')->primary();
+            $table->integer('id_frais')->autoIncrement();
             $table->integer('frais');
             $table->string('libelle_frais')->unique('libelle_frais');
-            $table->timestamp('created_at')->default('current_timestamp()');
-            $table->integer('matieres_evaluationsid_matiere_evaluation');
-            $table->bigInteger('etudiantsid_etudiant');
-            $table->integer('cyclesid_cycle');
-            
-            $table->foreign('cyclesid_cycle', 'FKfrais163605')->references('id_cycle')->on('cycles');
+            $table->timestamp('created_at')->useCurrent();
+            $table->integer('matieres_evaluations_id_matiere_evaluation');
+            $table->bigInteger('etudiants_id_etudiant');
+            $table->integer('cycles_id_cycle');
+
+            $table->foreign('cycles_id_cycle', 'FKfrais163605')->references('id_cycle')->on('cycles');
         });
     }
 

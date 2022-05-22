@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon $created_at
  * 
  * @property Collection|Filiere[] $filieres
- * @property Collection|Frai[] $frais
+ * @property Collection|Frais[] $frais
  * @property Collection|Niveau[] $niveaux
  *
  * @package App\Models
@@ -41,16 +41,16 @@ class Cycle extends Model
 
 	public function filieres()
 	{
-		return $this->hasMany(Filiere::class, 'cyclesid_cycle');
+		return $this->hasMany(Filiere::class, 'cycles_id_cycle');
 	}
 
 	public function frais()
 	{
-		return $this->hasMany(Frai::class, 'cyclesid_cycle');
+		return $this->hasMany(Frais::class, 'cycles_id_cycle');
 	}
 
 	public function niveaux()
 	{
-		return $this->hasMany(Niveau::class, 'cyclesid_cycle');
+		return $this->hasMany(Niveau::class, 'cycles_id_cycle');
 	}
 }

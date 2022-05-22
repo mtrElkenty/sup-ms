@@ -30,7 +30,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $fonctions_id_fonction
  * 
  * @property Fonction $fonction
- * @property Collection|Avi[] $avis
+ * @property Collection|Avis[] $avis
  * @property Collection|Professeur[] $professeurs
  * @property Collection|User[] $users
  *
@@ -73,7 +73,7 @@ class Employee extends Model
 
 	public function avis()
 	{
-		return $this->hasMany(Avi::class, 'employeesid_employee');
+		return $this->hasMany(Avis::class, 'employees_id_employee');
 	}
 
 	public function professeurs()

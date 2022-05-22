@@ -14,9 +14,9 @@ class CreateJoursTable extends Migration
     public function up()
     {
         Schema::create('jours', function (Blueprint $table) {
-            $table->integer('id_jour')->primary();
+            $table->integer('id_jour')->autoIncrement();
             $table->string('jour')->unique('jour');
-            $table->timestamp('created_at')->default('current_timestamp()');
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

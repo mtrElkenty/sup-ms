@@ -17,8 +17,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id_modules
  * @property Carbon $created_at
  * @property string $code_module
- * @property int $filieresid_filiere
- * @property int $semestresid_semestre
+ * @property int $filieres_id_filiere
+ * @property int $semestres_id_semestre
  * 
  * @property Semestre $semestre
  * @property Filiere $filiere
@@ -33,25 +33,25 @@ class Module extends Model
 	public $timestamps = false;
 
 	protected $casts = [
-		'filieresid_filiere' => 'int',
-		'semestresid_semestre' => 'int'
+		'filieres_id_filiere' => 'int',
+		'semestres_id_semestre' => 'int'
 	];
 
 	protected $fillable = [
 		'libelle_module',
 		'code_module',
-		'filieresid_filiere',
-		'semestresid_semestre'
+		'filieres_id_filiere',
+		'semestres_id_semestre'
 	];
 
 	public function semestre()
 	{
-		return $this->belongsTo(Semestre::class, 'semestresid_semestre');
+		return $this->belongsTo(Semestre::class, 'semestres_id_semestre');
 	}
 
 	public function filiere()
 	{
-		return $this->belongsTo(Filiere::class, 'filieresid_filiere');
+		return $this->belongsTo(Filiere::class, 'filieres_id_filiere');
 	}
 
 	public function matieres()

@@ -20,8 +20,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon $date_fin
  * @property Carbon $created_at
  * @property int $filieres_id_filiere
- * @property int $niveaus_id_niveau
- * @property int $semestresid_semestre
+ * @property int $niveaux_id_niveau
+ * @property int $semestres_id_semestre
  * 
  * @property Semestre $semestre
  * @property Filiere $filiere
@@ -38,8 +38,8 @@ class Evaluation extends Model
 
 	protected $casts = [
 		'filieres_id_filiere' => 'int',
-		'niveaus_id_niveau' => 'int',
-		'semestresid_semestre' => 'int'
+		'niveaux_id_niveau' => 'int',
+		'semestres_id_semestre' => 'int'
 	];
 
 	protected $dates = [
@@ -53,13 +53,13 @@ class Evaluation extends Model
 		'date_debut',
 		'date_fin',
 		'filieres_id_filiere',
-		'niveaus_id_niveau',
-		'semestresid_semestre'
+		'niveaux_id_niveau',
+		'semestres_id_semestre'
 	];
 
 	public function semestre()
 	{
-		return $this->belongsTo(Semestre::class, 'semestresid_semestre');
+		return $this->belongsTo(Semestre::class, 'semestres_id_semestre');
 	}
 
 	public function filiere()
@@ -69,12 +69,12 @@ class Evaluation extends Model
 
 	public function niveau()
 	{
-		return $this->belongsTo(Niveau::class, 'niveaus_id_niveau');
+		return $this->belongsTo(Niveau::class, 'niveaux_id_niveau');
 	}
 
 	public function matieres()
 	{
 		return $this->belongsToMany(Matiere::class, 'matieres_evaluations', 'evaluations_id_evaluation', 'matieres_id_matiere')
-					->withPivot('id_matiere_evaluation', 'jours_id_jour', 'horaires_id_horaire');
+			->withPivot('id_matiere_evaluation', 'jours_id_jour', 'horaires_id_horaire');
 	}
 }

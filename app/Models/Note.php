@@ -16,12 +16,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $cc
  * @property float|null $cp
  * @property float|null $moyenne_generale
- * @property float|null $cp_ratrapage
+ * @property float|null $cp_rattrapage
  * @property Carbon|null $created_at
  * @property int $semestres_id_semestre
  * @property int $etudiants_id_etudiant
  * @property int $matieres_id_matiere
- * @property int $annees_scolairesid_annee_scolaire
+ * @property int $annees_scolaires_id_annee_scolaire
  * 
  * @property Matiere $matiere
  * @property AnneesScolaire $annees_scolaire
@@ -40,22 +40,22 @@ class Note extends Model
 		'cc' => 'float',
 		'cp' => 'float',
 		'moyenne_generale' => 'float',
-		'cp_ratrapage' => 'float',
+		'cp_rattrapage' => 'float',
 		'semestres_id_semestre' => 'int',
 		'etudiants_id_etudiant' => 'int',
 		'matieres_id_matiere' => 'int',
-		'annees_scolairesid_annee_scolaire' => 'int'
+		'annees_scolaires_id_annee_scolaire' => 'int'
 	];
 
 	protected $fillable = [
 		'cc',
 		'cp',
 		'moyenne_generale',
-		'cp_ratrapage',
+		'cp_rattrapage',
 		'semestres_id_semestre',
 		'etudiants_id_etudiant',
 		'matieres_id_matiere',
-		'annees_scolairesid_annee_scolaire'
+		'annees_scolaires_id_annee_scolaire'
 	];
 
 	public function matiere()
@@ -65,7 +65,7 @@ class Note extends Model
 
 	public function annees_scolaire()
 	{
-		return $this->belongsTo(AnneesScolaire::class, 'annees_scolairesid_annee_scolaire');
+		return $this->belongsTo(AnneesScolaire::class, 'annees_scolaires_id_annee_scolaire');
 	}
 
 	public function etudiant()

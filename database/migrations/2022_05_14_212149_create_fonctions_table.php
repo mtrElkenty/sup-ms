@@ -14,10 +14,10 @@ class CreateFonctionsTable extends Migration
     public function up()
     {
         Schema::create('fonctions', function (Blueprint $table) {
-            $table->integer('id_fonction')->primary();
+            $table->integer('id_fonction')->autoIncrement();
             $table->string('fonction')->unique('fonction');
             $table->text('description')->nullable();
-            $table->timestamp('created_at')->default('current_timestamp()');
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

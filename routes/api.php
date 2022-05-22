@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/hello', function () {
+    return response()->json([
+        'greetings' => [
+            'arab' => "السلام عليكم",
+            'english' => "Hello",
+            'francais' => "Bonjour"
+        ]
+    ]);
+});
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

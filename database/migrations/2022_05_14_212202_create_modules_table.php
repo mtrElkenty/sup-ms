@@ -14,15 +14,15 @@ class CreateModulesTable extends Migration
     public function up()
     {
         Schema::create('modules', function (Blueprint $table) {
+            $table->integer('id_modules')->autoIncrement();
             $table->string('libelle_module')->unique('libelle_module');
-            $table->integer('id_modules')->primary();
-            $table->timestamp('created_at')->default('current_timestamp()');
+            $table->timestamp('created_at')->useCurrent();
             $table->string('code_module')->unique('code_module');
-            $table->integer('filieresid_filiere');
-            $table->integer('semestresid_semestre');
-            
-            $table->foreign('semestresid_semestre', 'FKmodules283234')->references('id_semestre')->on('semestres');
-            $table->foreign('filieresid_filiere', 'FKmodules7677')->references('id_filiere')->on('filieres');
+            $table->integer('filieres_id_filiere');
+            $table->integer('semestres_id_semestre');
+
+            $table->foreign('semestres_id_semestre', 'FKmodules283234')->references('id_semestre')->on('semestres');
+            $table->foreign('filieres_id_filiere', 'FKmodules7677')->references('id_filiere')->on('filieres');
         });
     }
 

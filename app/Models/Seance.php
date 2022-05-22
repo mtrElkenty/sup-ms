@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $horaires_id_horaire
  * @property int $jours_id_jour
  * @property int $professeurs_id_professeur
- * @property int $niveaus_id_niveau
+ * @property int $niveaux_id_niveau
  * @property int $filieres_id_filiere
  * @property int $matieres_id_matiere
  * 
@@ -44,7 +44,7 @@ class Seance extends Model
 		'horaires_id_horaire' => 'int',
 		'jours_id_jour' => 'int',
 		'professeurs_id_professeur' => 'int',
-		'niveaus_id_niveau' => 'int',
+		'niveaux_id_niveau' => 'int',
 		'filieres_id_filiere' => 'int',
 		'matieres_id_matiere' => 'int'
 	];
@@ -54,7 +54,7 @@ class Seance extends Model
 		'horaires_id_horaire',
 		'jours_id_jour',
 		'professeurs_id_professeur',
-		'niveaus_id_niveau',
+		'niveaux_id_niveau',
 		'filieres_id_filiere',
 		'matieres_id_matiere'
 	];
@@ -76,7 +76,7 @@ class Seance extends Model
 
 	public function niveau()
 	{
-		return $this->belongsTo(Niveau::class, 'niveaus_id_niveau');
+		return $this->belongsTo(Niveau::class, 'niveaux_id_niveau');
 	}
 
 	public function jour()

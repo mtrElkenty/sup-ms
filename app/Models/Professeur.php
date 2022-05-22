@@ -45,7 +45,7 @@ class Professeur extends Model
 
 	public function heures_effectuees()
 	{
-		return $this->hasMany(HeuresEffectuee::class, 'professeursid_professeur');
+		return $this->hasMany(HeuresEffectuee::class, 'professeurs_id_professeur');
 	}
 
 	public function matieres_pofesseurs()

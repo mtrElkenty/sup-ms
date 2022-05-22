@@ -14,10 +14,10 @@ class CreateCyclesTable extends Migration
     public function up()
     {
         Schema::create('cycles', function (Blueprint $table) {
-            $table->integer('id_cycle')->primary();
+            $table->integer('id_cycle')->autoIncrement();
             $table->string('libelle_cycle')->unique('libelle_cycle');
             $table->integer('nombre_annees')->default(1);
-            $table->timestamp('created_at')->default('current_timestamp()');
+            $table->timestamp('created_at')->nullable()->useCurrent();
         });
     }
 

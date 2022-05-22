@@ -29,7 +29,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $situation_famille
  * @property Carbon $created_at
  * @property int $parents_infos_id_parent
- * @property int $niveaus_id_niveau
+ * @property int $niveaux_id_niveau
  * @property int $filieres_id_filiere
  * 
  * @property Filiere $filiere
@@ -50,7 +50,7 @@ class Etudiant extends Model
 
 	protected $casts = [
 		'parents_infos_id_parent' => 'int',
-		'niveaus_id_niveau' => 'int',
+		'niveaux_id_niveau' => 'int',
 		'filieres_id_filiere' => 'int'
 	];
 
@@ -73,7 +73,7 @@ class Etudiant extends Model
 		'lieu_naissance',
 		'situation_famille',
 		'parents_infos_id_parent',
-		'niveaus_id_niveau',
+		'niveaux_id_niveau',
 		'filieres_id_filiere'
 	];
 
@@ -89,7 +89,7 @@ class Etudiant extends Model
 
 	public function niveau()
 	{
-		return $this->belongsTo(Niveau::class, 'niveaus_id_niveau');
+		return $this->belongsTo(Niveau::class, 'niveaux_id_niveau');
 	}
 
 	public function notes()

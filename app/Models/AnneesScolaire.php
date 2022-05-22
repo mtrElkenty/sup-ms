@@ -28,6 +28,6 @@ class AnneesScolaire extends Model
 
 	public function notes()
 	{
-		return $this->hasMany(Note::class, 'annees_scolairesid_annee_scolaire');
+		return $this->hasMany(Note::class, 'annees_scolaires_id_annee_scolaire');
 	}
 }

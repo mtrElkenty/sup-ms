@@ -1,0 +1,12 @@
+import os
+
+dirs = ['cycles', 'etudints']
+
+script_path = os.path.realpath(__file__)
+for dir in dirs:
+    new_abs_path = os.path.join(script_path, dir)
+    if not os.path.exists(new_abs_path):
+        os.mkdir(new_abs_path)
+        open(new_abs_path + '/index.blade.php', 'w')
+        open(new_abs_path + '/new.blade.php', 'w')
+

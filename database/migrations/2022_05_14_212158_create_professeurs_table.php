@@ -14,10 +14,10 @@ class CreateProfesseursTable extends Migration
     public function up()
     {
         Schema::create('professeurs', function (Blueprint $table) {
-            $table->integer('id_professeur')->primary();
-            $table->timestamp('created_at')->nullable()->default('current_timestamp()');
+            $table->integer('id_professeur')->autoIncrement();
+            $table->timestamp('created_at')->nullable()->useCurrent();
             $table->integer('employees_id_employee');
-            
+
             $table->foreign('employees_id_employee', 'FKprofesseur740848')->references('id_employee')->on('employees');
         });
     }
