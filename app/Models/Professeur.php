@@ -12,12 +12,12 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Professeur
- * 
+ *
  * @property int $id_professeur
  * @property Carbon|null $created_at
- * @property int $employees_id_employee
- * 
- * @property Employee $employee
+ * @property int $employes_id_employe
+ *
+ * @property Employe $employe
  * @property Collection|HeuresEffectuee[] $heures_effectuees
  * @property Collection|MatieresPofesseur[] $matieres_pofesseurs
  * @property Collection|Seance[] $seances
@@ -31,16 +31,16 @@ class Professeur extends Model
 	public $timestamps = false;
 
 	protected $casts = [
-		'employees_id_employee' => 'int'
+		'employes_id_employe' => 'int'
 	];
 
 	protected $fillable = [
-		'employees_id_employee'
+		'employes_id_employe'
 	];
 
-	public function employee()
+	public function employe()
 	{
-		return $this->belongsTo(Employee::class, 'employees_id_employee');
+		return $this->belongsTo(Employe::class, 'employes_id_employe');
 	}
 
 	public function heures_effectuees()

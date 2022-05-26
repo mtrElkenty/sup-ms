@@ -18,10 +18,10 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique('username');
             $table->text('password');
             $table->timestamp('created_at')->useCurrent();
-            $table->integer('employees_id_employee');
+            $table->integer('employes_id_employe');
             $table->integer('roles_id_role');
 
-            $table->foreign('employees_id_employee', 'FKusers175237')->references('id_employee')->on('employees');
+            $table->foreign('employe_id_employe', 'FKusers175237')->references('id_employe')->on('employes');
             $table->foreign('roles_id_role', 'FKusers917132')->references('id_role')->on('roles');
         });
     }

@@ -12,15 +12,16 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Fonction
- * 
+ *
  * @property int $id_fonction
  * @property string $fonction
  * @property string|null $description
  * @property Carbon $created_at
- * 
- * @property Collection|Employee[] $employees
+ *
+ * @property Collection|Employe[] $employes
  *
  * @package App\Models
+ * @method static create(array $formFields)
  */
 class Fonction extends Model
 {
@@ -33,8 +34,8 @@ class Fonction extends Model
 		'description'
 	];
 
-	public function employees()
-	{
-		return $this->hasMany(Employee::class, 'fonctions_id_fonction');
+	public function employes(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+		return $this->hasMany(Employe::class, 'fonctions_id_fonction');
 	}
 }

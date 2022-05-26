@@ -2,33 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
 
 class UserController extends Controller
 {
-    public function login()
+    public function login(): View
     {
-        return view('user.login', ['title' => 'Connectez | SupMS']);
+        return view('user.login', ['title' => 'Connectez Vous | SupMS']);
     }
 
-    public function authenticate(Request $request)
+    public function authenticate(Request $request): RedirectResponse
     {
-        // Did you mean Illuminate\Validation\Validator::validateSame() ?
-        $formFields = $request->validate([
-            'username' => ['required', 'string', 'regex:/\w*$/', 'max:255'],
-            'password' => ['required', 'min:8', 'max:255']
+        $credentials = $request->validate([
+            'username' => ['required'],
+            'password' => ['required']
         ]);
 
-        if (auth()->attempt($formFields)) {
+        if (auth()->attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect('/');
+            return back();
         }
 
         return back()->withErrors(['username' => 'Invalid Credentials'])->onlyInput('username');
     }
 
-    public function logout(Request $request)
+    public function logout(Request $request): RedirectResponse
     {
         auth()->logout();
 

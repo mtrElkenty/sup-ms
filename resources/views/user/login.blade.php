@@ -4,9 +4,14 @@
     <div style="margin: 60px 100px">
         <div class="row match-height">
             <div class="col-xl-6 col-md-12" style="">
-                <div class="login-left-content">
-                    <h1>Connectez-vous<br>a SupMS.</h1>
-                    <img src="{{ asset('/images/2.png') }}" alt="login">
+
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-body text-center">
+                            <img style="width: 450px" src="{{ asset('/images/logo/sup-management.png') }}" alt="login">
+                            <h1 class="mt-1 mb-0">System Gestion Sup'Management</h1>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -35,7 +40,7 @@
 
                                 </div>
                                 <div class="form-actions center">
-                                    <button type="submit" class="btn mb-1 btn-primary btn-lg btn-block">Connecter</button>
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block">Connecter</button>
                                 </div>
                             </form>
                         </div>

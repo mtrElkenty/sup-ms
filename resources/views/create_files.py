@@ -4,7 +4,7 @@ dirs = [
     'annees_scolaires',
     'avis',
     'cycles',
-    'employees',
+    'employes',
     'etudiants',
     'evaluations',
     'filieres',

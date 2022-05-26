@@ -16,9 +16,9 @@ class CreateProfesseursTable extends Migration
         Schema::create('professeurs', function (Blueprint $table) {
             $table->integer('id_professeur')->autoIncrement();
             $table->timestamp('created_at')->nullable()->useCurrent();
-            $table->integer('employees_id_employee');
+            $table->integer('employes_id_employe');
 
-            $table->foreign('employees_id_employee', 'FKprofesseur740848')->references('id_employee')->on('employees');
+            $table->foreign('employes_id_employe', 'FKprofesseur740848')->references('id_employe')->on('employes');
         });
     }
 

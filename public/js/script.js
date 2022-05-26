@@ -10,5 +10,10 @@ const preparerModifierFonctionModel = (id) => {
 
 const preparerSuprimerFonctionModel = (id) => {
     document.getElementById("supprimerFonctionForm").action += id;
-    document.getElementById("supprimerFonctionSuprimerLabel").value = id;
+    document.getElementById("idFonctionSupprimerModel").value = id;
 };
+
+const preparerSuprimerEmployeModel = (id) => {
+    document.getElementById("supprimerEmployeForm").action += id;
+    document.getElementById("idEmployeSupprimerModel").value = id;
+}

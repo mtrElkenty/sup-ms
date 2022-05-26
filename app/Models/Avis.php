@@ -11,17 +11,17 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Avis
- * 
+ *
  * @property int $id_avis
  * @property string|null $titre_avis
  * @property string|null $description_avis
  * @property Carbon $created_at
- * @property int $employees_id_employee
+ * @property int $employes_id_employe
  * @property int $filieres_id_filiere
  * @property int $niveaux_id_niveau
- * 
+ *
  * @property Niveau $niveau
- * @property Employee $employee
+ * @property Employe $employe
  * @property Filiere $filiere
  *
  * @package App\Models
@@ -33,7 +33,7 @@ class Avis extends Model
     public $timestamps = false;
 
     protected $casts = [
-        'employees_id_employee' => 'int',
+        'employes_id_employe' => 'int',
         'filieres_id_filiere' => 'int',
         'niveaux_id_niveau' => 'int'
     ];
@@ -41,7 +41,7 @@ class Avis extends Model
     protected $fillable = [
         'titre_avis',
         'description_avis',
-        'employees_id_employee',
+        'employes_id_employe',
         'filieres_id_filiere',
         'niveaux_id_niveau'
     ];
@@ -51,9 +51,9 @@ class Avis extends Model
         return $this->belongsTo(Niveau::class, 'niveaux_id_niveau');
     }
 
-    public function employee()
+    public function employe()
     {
-        return $this->belongsTo(Employee::class, 'employees_id_employee');
+        return $this->belongsTo(Employe::class, 'employes_id_employe');
     }
 
     public function filiere()

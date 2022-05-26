@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\FonctionController;
+use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\UserController;
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,10 @@ Route::post('/auth', [UserController::class, 'authenticate'])->middleware('guest
 // Authentifier User
 Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 
+// ==================================================================================================
+// Routes pour les fonctions:
+// ==================================================================================================
+
 // Tous les fonction
 Route::get('/fonctions', [FonctionController::class, 'index'])->name('fonctions')->middleware('auth');
 
@@ -44,3 +49,25 @@ Route::put('/fonctions/{fonction}', [FonctionController::class, 'update'])->midd
 
 // Modifier Une Fonction
 Route::delete('/fonctions/{fonction}', [FonctionController::class, 'delete'])->middleware('auth');
+
+// ==================================================================================================
+// Routes pour les employes
+// ==================================================================================================
+
+// Tous les Employe
+Route::get('/employes', [EmployeController::class, 'index'])->name('employes')->middleware('auth');
+
+// Ajouter Une Employe
+// View
+Route::get('/employes/ajouter', [EmployeController::class, 'ajouter'])->name('ajouter-employe')->middleware('auth');
+// Action
+Route::post('/employes', [EmployeController::class, 'create'])->middleware('auth');
+
+// Modifier Une Employe
+// View
+Route::get('/employes/modifier/{employe}', [EmployeController::class, 'modifier'])->name('modifier-employe')->middleware('auth');
+// Action
+Route::put('/employes/{employe}', [EmployeController::class, 'update'])->middleware('auth');
+
+// Modifier Une Employe
+Route::delete('/employes/{employe}', [EmployeController::class, 'delete'])->middleware('auth');

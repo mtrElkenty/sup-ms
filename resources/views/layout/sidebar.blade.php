@@ -17,6 +17,9 @@
             <li class="{{ Route::currentRouteName() == 'fonctions' ? 'active' : 'nav-item' }}"><a href="/fonctions"><i
                         class="la la-suitcase"></i><span class="menu-title" data-i18n="">Fonctions</span></a>
             </li>
+            <li class="{{ in_array(Route::currentRouteName(), ['employes', 'ajouter-employe', 'modifier-employe'])  ? 'active' : 'nav-item' }}"><a href="/employes"><i
+                        class="la la-users"></i><span class="menu-title" data-i18n="">Employes</span></a>
+            </li>
         </ul>
     </div>
     <div class="navigation-background"></div>

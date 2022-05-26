@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEmployeesTable extends Migration
+class CreateEmployesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateEmployeesTable extends Migration
      */
     public function up()
     {
-        Schema::create('employees', function (Blueprint $table) {
-            $table->integer('id_employee')->autoIncrement();
+        Schema::create('employe', function (Blueprint $table) {
+            $table->integer('id_employe')->autoIncrement();
             $table->string('nom');
             $table->string('prenom');
             $table->char('NNI', 10)->unique('NNI');
@@ -30,7 +30,7 @@ class CreateEmployeesTable extends Migration
             $table->timestamp('created_at')->useCurrent();
             $table->integer('fonctions_id_fonction');
 
-            $table->foreign('fonctions_id_fonction', 'FKemployees688295')->references('id_fonction')->on('fonctions');
+            $table->foreign('fonctions_id_fonction', 'FKemployes688295')->references('id_fonction')->on('fonctions');
         });
     }
 
@@ -41,6 +41,6 @@ class CreateEmployeesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employees');
+        Schema::dropIfExists('employes');
     }
 }

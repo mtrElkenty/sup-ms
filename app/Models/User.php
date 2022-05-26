@@ -17,10 +17,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string $username
  * @property string $password
  * @property Carbon|null $created_at
- * @property int $employees_id_employee
+ * @property int $employes_id_employe
  * @property int $roles_id_role
  *
- * @property Employee $employee
+ * @property Employe $employe
  * @property Role $role
  *
  * @package App\Models
@@ -32,7 +32,7 @@ class User extends Authenticatable
     public $timestamps = false;
 
     protected $casts = [
-        'employees_id_employee' => 'int',
+        'employes_id_employe' => 'int',
         'roles_id_role' => 'int'
     ];
 
@@ -43,13 +43,13 @@ class User extends Authenticatable
     protected $fillable = [
         'username',
         'password',
-        'employees_id_employee',
+        'employes_id_employe',
         'roles_id_role'
     ];
 
-    public function employee()
+    public function employe()
     {
-        return $this->belongsTo(Employee::class, 'employees_id_employee');
+        return $this->belongsTo(Employe::class, 'employes_id_employe');
     }
 
     public function role()
