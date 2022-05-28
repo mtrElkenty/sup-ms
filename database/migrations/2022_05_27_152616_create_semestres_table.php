@@ -14,12 +14,12 @@ class CreateSemestresTable extends Migration
     public function up()
     {
         Schema::create('semestres', function (Blueprint $table) {
-            $table->integer('id_semestre')->autoIncrement();
+            $table->integer('id_semestre')->primary();
             $table->string('libelle_semestre')->unique('libelle_semestre');
             $table->timestamp('created_at')->nullable();
             $table->integer('niveaux_id_niveau');
-
-            $table->foreign('niveaux_id_niveau', 'FKsemestres416517')->references('id_niveau')->on('niveaux');
+            
+            $table->foreign('niveaux_id_niveau', 'FKsemestres239110')->references('id_niveau')->on('niveaux');
         });
     }
 

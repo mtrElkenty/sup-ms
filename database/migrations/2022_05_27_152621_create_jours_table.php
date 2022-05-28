@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateParentsInfosTable extends Migration
+class CreateJoursTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateParentsInfosTable extends Migration
      */
     public function up()
     {
-        Schema::create('parents_infos', function (Blueprint $table) {
-            $table->integer('id_parent')->autoIncrement();
-            $table->timestamp('created_at')->nullable();
+        Schema::create('jours', function (Blueprint $table) {
+            $table->integer('id_jour')->primary();
+            $table->string('jour')->unique('jour');
+            $table->timestamp('created_at')->default('current_timestamp()');
         });
     }
 
@@ -26,6 +27,6 @@ class CreateParentsInfosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('parents_infos');
+        Schema::dropIfExists('jours');
     }
 }

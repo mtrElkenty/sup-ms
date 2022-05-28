@@ -13,8 +13,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="/employes/ajouter" class="btn btn-primary mt-1">
-                            Ajouter Employe
+                        <a href="/{{ isset($is_prof_page) ? 'professeurs' : 'employes' }}/ajouter" class="btn btn-primary mt-1">
+                            Ajouter {{ isset($is_prof_page) ? 'Professeur' : 'Employe' }}
                         </a>
                         <div class="heading-elements">
                             <ul class="list-inline mb-0">
@@ -48,7 +48,7 @@
                                             <td id="{{ $employe->id_employe . '-adress' }}">
                                                 {{ $employe->pays . " - " . $employe->ville . ", " . $employe->adress }}</td>
                                             <td style="display: flex; border: none">
-                                                <a href="/employes/modifier/{{$employe->id_employe}}" class="btn btn-primary px-1 mr-1">
+                                                <a href="/{{ isset($is_prof_page) ? 'professeurs' : 'employes' }}/modifier/{{$employe->id_employe}}" class="btn btn-primary px-1 mr-1">
                                                     <i class="la la-pencil"></i>
                                                 </a>
                                                 <button type="button" class="btn btn-danger px-1"

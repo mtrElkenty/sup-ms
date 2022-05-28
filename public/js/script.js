@@ -17,3 +17,4 @@ const preparerSuprimerEmployeModel = (id) => {
     document.getElementById("supprimerEmployeForm").action += id;
     document.getElementById("idEmployeSupprimerModel").value = id;
 }
+

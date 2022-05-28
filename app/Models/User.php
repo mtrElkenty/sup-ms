@@ -8,6 +8,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
@@ -47,12 +48,12 @@ class User extends Authenticatable
         'roles_id_role'
     ];
 
-    public function employe()
+    public function employe(): BelongsTo
     {
         return $this->belongsTo(Employe::class, 'employes_id_employe');
     }
 
-    public function role()
+    public function role(): BelongsTo
     {
         return $this->belongsTo(Role::class, 'roles_id_role');
     }

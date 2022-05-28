@@ -14,13 +14,13 @@ class CreateFilieresTable extends Migration
     public function up()
     {
         Schema::create('filieres', function (Blueprint $table) {
-            $table->integer('id_filiere')->autoIncrement();
+            $table->integer('id_filiere')->primary();
             $table->string('code_filiere')->unique('code_filiere');
             $table->string('libelle_filiere')->unique('libelle_filiere');
-            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('created_at')->default('current_timestamp()');
             $table->integer('cycles_id_cycle');
-
-            $table->foreign('cycles_id_cycle', 'FKfilieres144308')->references('id_cycle')->on('cycles');
+            
+            $table->foreign('cycles_id_cycle', 'FKfilieres875897')->references('id_cycle')->on('cycles');
         });
     }
 

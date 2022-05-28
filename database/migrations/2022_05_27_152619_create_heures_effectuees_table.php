@@ -14,11 +14,11 @@ class CreateHeuresEffectueesTable extends Migration
     public function up()
     {
         Schema::create('heures_effectuees', function (Blueprint $table) {
-            $table->integer('id_heure_effectuee')->autoIncrement();
-            $table->timestamp('created_at')->useCurrent();
-            $table->integer('professeurs_id_professeur');
-
-            $table->foreign('professeurs_id_professeur', 'FKheures_eff664733')->references('id_professeur')->on('professeurs');
+            $table->integer('id_heure_effectuee')->primary();
+            $table->timestamp('created_at')->default('current_timestamp()');
+            $table->integer('employes_id_employe');
+            
+            $table->foreign('employes_id_employe', 'FKheures_eff774617')->references('id_employe')->on('employes');
         });
     }
 

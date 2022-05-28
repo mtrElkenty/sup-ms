@@ -14,11 +14,11 @@ class CreateSessionsRattrapagesTable extends Migration
     public function up()
     {
         Schema::create('sessions_rattrapages', function (Blueprint $table) {
-            $table->integer('id_session_rattrapage')->autoIncrement();
-            $table->timestamp('created_at')->useCurrent();
+            $table->integer('id_session_rattrapage')->primary();
+            $table->timestamp('created_at')->default('current_timestamp()');
             $table->integer('matieres_id_matiere');
             $table->bigInteger('etudiants_id_etudiant');
-
+            
             $table->foreign('matieres_id_matiere', 'FKsessions_r253830')->references('id_matiere')->on('matieres');
             $table->foreign('etudiants_id_etudiant', 'FKsessions_r794825')->references('id_etudiant')->on('etudiants');
         });

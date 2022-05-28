@@ -13,8 +13,8 @@ class CreateEmployesTable extends Migration
      */
     public function up()
     {
-        Schema::create('employe', function (Blueprint $table) {
-            $table->integer('id_employe')->autoIncrement();
+        Schema::create('employes', function (Blueprint $table) {
+            $table->integer('id_employe')->primary();
             $table->string('nom');
             $table->string('prenom');
             $table->char('NNI', 10)->unique('NNI');
@@ -27,9 +27,9 @@ class CreateEmployesTable extends Migration
             $table->string('sexe');
             $table->date('date_naissance');
             $table->string('lieu_naissance');
-            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('created_at')->default('current_timestamp()');
             $table->integer('fonctions_id_fonction');
-
+            
             $table->foreign('fonctions_id_fonction', 'FKemployes688295')->references('id_fonction')->on('fonctions');
         });
     }

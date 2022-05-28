@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHorairesTable extends Migration
+class CreateParentsInfosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateHorairesTable extends Migration
      */
     public function up()
     {
-        Schema::create('horaires', function (Blueprint $table) {
-            $table->integer('id_horaire')->autoIncrement();
-            $table->time('du')->unique('du');
-            $table->time('a')->unique('a');
-            $table->timestamp('created_at')->useCurrent();
+        Schema::create('parents_infos', function (Blueprint $table) {
+            $table->integer('id_parent')->primary();
+            $table->timestamp('created_at')->nullable();
         });
     }
 
@@ -28,6 +26,6 @@ class CreateHorairesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('horaires');
+        Schema::dropIfExists('parents_infos');
     }
 }

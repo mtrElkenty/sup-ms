@@ -20,6 +20,9 @@
             <li class="{{ in_array(Route::currentRouteName(), ['employes', 'ajouter-employe', 'modifier-employe'])  ? 'active' : 'nav-item' }}"><a href="/employes"><i
                         class="la la-users"></i><span class="menu-title" data-i18n="">Employes</span></a>
             </li>
+            <li class="{{ in_array(Route::currentRouteName(), ['professeurs', 'ajouter-professeur', 'modifier-professeur'])  ? 'active' : 'nav-item' }}"><a href="/professeurs"><i
+                        class="la la-book"></i><span class="menu-title" data-i18n="">Professeurs</span></a>
+            </li>
         </ul>
     </div>
     <div class="navigation-background"></div>

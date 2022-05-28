@@ -29,7 +29,7 @@ class FonctionController extends Controller
         ]);
 
         Fonction::create($new_fonction);
-        return back();
+        return back()->with('message', 'Fonction Cree Avec Succee!');
     }
 
     public function update(Request $request, Fonction $fonction): RedirectResponse
@@ -49,3 +49,4 @@ class FonctionController extends Controller
         return back()->with('message', 'Fonction Supprime Avec Succee');
     }
 }
+

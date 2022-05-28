@@ -2,7 +2,7 @@
 @section('content')
     <div class="content-header row">
         <div class="content-header-left col-md-6 col-12 mb-2">
-            <h3 class="content-header-title">Ajouter un nouveau l'employe</h3>
+            <h3 class="content-header-title">Ajouter {{ isset($is_prof_page) ? 'Professeurs' : 'Employes' }}</h3>
         </div>
     </div>
 
@@ -20,18 +20,28 @@
                                 <div class="row mb-1">
                                     <div class="col-auto">
                                         <select name="fonctions_id_fonction" class="form-control @error('fonctions_id_fonction') is-invalid @enderror">
-                                            <option value="">Fonction</option>
-                                            @foreach($fonctions as $fonction)
-                                                <option value="{{$fonction->id_fonction}}" {{old('fonctions_id_fonction') == $fonction->id_fonction ? 'selected' : ''}}>{{$fonction->fonction}}</option>
-                                            @endforeach
+                                            @if(isset($is_prof_page))
+                                                @foreach($fonctions as $fonction)
+                                                    @if(str_contains(strtolower($fonction->fonction), 'professeur'))
+                                                        <option value="{{$fonction->id_fonction}}" {{old('fonctions_id_fonction') == $fonction->id_fonction ? 'selected' : ''}}>{{$fonction->fonction}}</option>
+                                                    @endif
+                                                @endforeach
+                                            @else
+                                                <option value="">Fonction</option>
+                                                @foreach($fonctions as $fonction)
+                                                    <option value="{{$fonction->id_fonction}}" {{old('fonctions_id_fonction') == $fonction->id_fonction ? 'selected' : ''}}>{{$fonction->fonction}}</option>
+                                                @endforeach
+                                            @endif
                                         </select>
                                     </div>
-                                    <div class="col-auto">
-                                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                data-target="#ajouterFonction">
-                                            Ajouter Fonction
-                                        </button>
-                                    </div>
+                                    @if(!isset($is_prof_page))
+                                        <div class="col-auto">
+                                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                    data-target="#ajouterFonction">
+                                                Ajouter Fonction
+                                            </button>
+                                        </div>
+                                    @endif
                                 </div>
                                 @error('nom')
                                     <div class="invalid-feedback">{{$message}}</div>

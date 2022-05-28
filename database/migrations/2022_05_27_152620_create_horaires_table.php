@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJoursTable extends Migration
+class CreateHorairesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateJoursTable extends Migration
      */
     public function up()
     {
-        Schema::create('jours', function (Blueprint $table) {
-            $table->integer('id_jour')->autoIncrement();
-            $table->string('jour')->unique('jour');
-            $table->timestamp('created_at')->useCurrent();
+        Schema::create('horaires', function (Blueprint $table) {
+            $table->integer('id_horaire')->primary();
+            $table->time('du')->unique('du');
+            $table->time('a')->unique('a');
+            $table->timestamp('created_at')->default('current_timestamp()');
         });
     }
 
@@ -27,6 +28,6 @@ class CreateJoursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jours');
+        Schema::dropIfExists('horaires');
     }
 }

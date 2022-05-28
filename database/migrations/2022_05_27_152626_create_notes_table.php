@@ -14,20 +14,20 @@ class CreateNotesTable extends Migration
     public function up()
     {
         Schema::create('notes', function (Blueprint $table) {
-            $table->integer('id_note')->autoIncrement();
+            $table->integer('id_note')->primary();
             $table->float('cc')->default(0);
             $table->float('cp')->default(0);
             $table->float('moyenne_generale')->default(0);
-            $table->float('cp_rattrapage')->default(0);
+            $table->float('cp_ratrapage')->default(0);
             $table->timestamp('created_at')->nullable();
             $table->integer('semestres_id_semestre');
             $table->bigInteger('etudiants_id_etudiant');
             $table->integer('matieres_id_matiere');
             $table->integer('annees_scolaires_id_annee_scolaire');
-
+            
             $table->foreign('matieres_id_matiere', 'FKnotes299100')->references('id_matiere')->on('matieres');
-            $table->foreign('annees_scolaires_id_annee_scolaire', 'FKnotes33897')->references('id_annee_scolaire')->on('annees_scolaires');
             $table->foreign('etudiants_id_etudiant', 'FKnotes623834')->references('id_etudiant')->on('etudiants');
+            $table->foreign('annees_scolaires_id_annee_scolaire', 'FKnotes630957')->references('id_annee_scolaire')->on('annees_scolaires');
             $table->foreign('semestres_id_semestre', 'FKnotes982867')->references('id_semestre')->on('semestres');
         });
     }

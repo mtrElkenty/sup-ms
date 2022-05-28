@@ -13,12 +13,24 @@ class EmployeController extends Controller
 {
     public function index(): View
     {
-        return view('employes.index', ['title' => 'Employes', 'employes' => Employe::all()]);
+        return view(
+            'employes.index',
+            [
+                'title' => 'Employes',
+                'employes' => Employe::all()
+            ]
+        );
     }
 
     public function ajouter (): View
     {
-        return view('employes.ajouter', ['title' => 'Ajouter Employe', 'fonctions' => Fonction::all()]);
+        return view(
+            'employes.ajouter',
+            [
+                'title' => 'Ajouter Employe',
+                'fonctions' => Fonction::all()
+            ]
+        );
     }
 
     public function create(Request $request): RedirectResponse
@@ -63,14 +75,21 @@ class EmployeController extends Controller
                 'lieu_naissance.required' => 'Vuillez entrez le lieu de naissance de l\'employe'
             ]
         );
-
         Employe::create($new_employe);
+
         return back();
     }
 
     public function modifier(Employe $employe): View
     {
-        return view('employes.modifier', ['title' => 'Modifier ' . $employe->nom, 'employe' => $employe, 'fonctions' => Fonction::all()]);
+        return view(
+            'employes.modifier',
+            [
+                'title' => 'Modifier ' . $employe->nom,
+                'employe' => $employe,
+                'fonctions' => Fonction::all()
+            ]
+        );
     }
 
     public function update(Request $request, Employe $employe): RedirectResponse
@@ -116,6 +135,7 @@ class EmployeController extends Controller
             ]
         );
         $employe->update($new_data);
+
         return redirect(route('employes'));
     }
 

@@ -9,6 +9,8 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Employe
@@ -36,6 +38,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  * @method static create(array $new_employe)
+ * @method static join(string $table, string $on1, string $operation, string $on2)
  */
 class Employe extends Model
 {
@@ -67,22 +70,27 @@ class Employe extends Model
         'fonctions_id_fonction'
     ];
 
-    public function fonction()
+    public function getFonction(): Collection
+    {
+        return Fonction::all()->where('id_fonction', '=', $this->fonctions_id_fonction);
+    }
+
+    public function fonction(): BelongsTo
     {
         return $this->belongsTo(Fonction::class, 'fonctions_id_fonction');
     }
 
-    public function avis()
+    public function avis(): HasMany
     {
         return $this->hasMany(Avis::class, 'employes_id_employe');
     }
 
-    public function professeurs()
+    public function professeurs(): HasMany
     {
         return $this->hasMany(Professeur::class, 'employes_id_employe');
     }
 
-    public function users()
+    public function users(): HasMany
     {
         return $this->hasMany(User::class, 'employes_id_employe');
     }

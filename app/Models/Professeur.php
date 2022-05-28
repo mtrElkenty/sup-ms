@@ -9,6 +9,8 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Professeur
@@ -38,23 +40,23 @@ class Professeur extends Model
 		'employes_id_employe'
 	];
 
-	public function employe()
-	{
+	public function employe(): BelongsTo
+    {
 		return $this->belongsTo(Employe::class, 'employes_id_employe');
 	}
 
-	public function heures_effectuees()
+	public function heures_effectuees(): HasMany
 	{
 		return $this->hasMany(HeuresEffectuee::class, 'professeurs_id_professeur');
 	}
 
-	public function matieres_pofesseurs()
+	public function matieres_pofesseurs(): HasMany
 	{
 		return $this->hasMany(MatieresPofesseur::class, 'professeurs_id_professeur');
 	}
 
-	public function seances()
-	{
+	public function seances(): HasMany
+    {
 		return $this->hasMany(Seance::class, 'professeurs_id_professeur');
 	}
 }
