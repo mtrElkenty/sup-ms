@@ -14,15 +14,15 @@ class EmployeController extends Controller
     public function index(): View
     {
         return view(
-            'employes.index',
             [
+                'employes.index',
                 'title' => 'Employes',
                 'employes' => Employe::all()
             ]
         );
     }
 
-    public function ajouter (): View
+    public function ajouter(): View
     {
         return view(
             'employes.ajouter',
@@ -59,9 +59,9 @@ class EmployeController extends Controller
                 'prenom.min' => 'Le prenom ne peut pas etre mois de deux caracteres',
                 'NNI.required' => 'Vuillez entrez le numero national d\'indentite de l\'employe',
                 'NNI.unique' => 'le NNI existe deja',
-                'telephone_1.required' => 'Vuillez numero du telephone de l\'employe',
-                'telephone_1.numeric' => 'Numero telephone non valide',
-                'telephone_1.unique' => 'Le numero telephone existe deja',
+                'telephone.required' => 'Vuillez numero du telephone de l\'employe',
+                'telephone.numeric' => 'Numero telephone non valide',
+                'telephone.unique' => 'Le numero telephone existe deja',
                 'email.required' => 'Vuillez entrez l\'email de l\'employe',
                 'email.email' => 'Email non valid deja',
                 'email.unique' => 'Email existe deja',
@@ -94,6 +94,8 @@ class EmployeController extends Controller
 
     public function update(Request $request, Employe $employe): RedirectResponse
     {
+        var_dump($employe);
+        die();
         $new_data = $request->validate(
             [
                 'fonctions_id_fonction' => ['required'],

@@ -3,3 +3,7 @@
 @import url('../fonts/line-awesome/css/line-awesome.min.css');
 @import url('../fonts/flag-icon-css/css/flag-icon.min.css');
 @import url('../vendors/css/extensions/pace.css');
+
+button:focus {
+    outline: none !important;
+}

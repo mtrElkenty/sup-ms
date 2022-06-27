@@ -28,7 +28,10 @@
                     <div class="card-content collapse show">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table">
+                                @if(sizeof($fonctions) == 0)
+                                    <h3>Commencez par <a href="/fonctions/ajouter">ajouter</a> des fonctions</h3>
+                                @else
+                                    <table class="table">
                                     <thead>
                                         <tr>
                                             <th>Titre</th>
@@ -40,19 +43,19 @@
                                     <tbody>
                                         @foreach ($fonctions as $fonction)
                                             <tr>
-                                                <th id="{{ $fonction->id_fonction . '-fonction' }}" scope="row">
+                                                <th id ="{{ $fonction->id_fonction . '-fonction' }}" scope="row">
                                                     {{ $fonction->fonction }}</th>
                                                 <td id="{{ $fonction->id_fonction . '-description' }}">
                                                     {{ $fonction->description }}</td>
                                                 <td>{{ $fonction->created_at }}</td>
-                                                <td style="display: flex; border: none">
-                                                    <button type="button" class="btn btn-primary px-1 mr-1"
+                                                <td class="table-actions">
+                                                    <button type="button" class="edit"
                                                         data-toggle="modal"
                                                         onclick="preparerModifierFonctionModel({{ $fonction->id_fonction }})"
                                                         data-target="#modifierFonction">
                                                         <i class="la la-pencil"></i>
                                                     </button>
-                                                    <button type="button" class="btn btn-danger px-1"
+                                                    <button type="button" class="delete"
                                                         onclick="preparerSuprimerFonctionModel({{ $fonction->id_fonction }})"
                                                         data-toggle="modal" data-target="#supprimerFonction">
                                                         <i class="la la-trash-o"></i>
@@ -62,6 +65,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                @endif
                             </div>
                         </div>
                     </div>

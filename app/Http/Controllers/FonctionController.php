@@ -34,12 +34,12 @@ class FonctionController extends Controller
 
     public function update(Request $request, Fonction $fonction): RedirectResponse
     {
-        $formFields = $request->validate([
+        $new_data = $request->validate([
             'fonction' => ['required'],
             'description' => []
         ]);
 
-        $fonction->update($formFields);
+        $fonction->update($new_data);
         return back()->with('message', 'Fonction Modifier Avec Succee!');
     }
 

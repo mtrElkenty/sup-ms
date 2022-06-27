@@ -1,0 +1,40 @@
+.table-actions {
+    display: flex;
+    border-top: 0 !important;
+    border-bottom: 1px solid #e3ebf3 !important;
+}
+
+.table-actions > .edit {
+    border: 1px solid #0d6aad;
+    width: 30px;
+    height: 30px;
+    margin: 3px;
+    padding: 4px;
+    background-color: #FFFFFF;
+    color: #0d6aad;
+    border-radius: 100%;
+    cursor: pointer;
+
+}
+
+.table-actions > .edit:hover {
+    background-color: #0d6aad;
+    color: #FFFFFF;
+}
+
+.table-actions > .delete {
+    border: 1px solid #fa626b;
+    width: 30px;
+    height: 30px;
+    margin: 3px;
+    padding: 4px;
+    background-color: #fa626b;
+    color: #FFFFFF;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.table-actions > .delete:hover {
+    background-color: #FFFFFF;
+    color: #fa626b;
+}

@@ -12,12 +12,12 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Niveau
- * 
+ *
  * @property int $id_niveau
  * @property string $libelle_niveau
  * @property Carbon|null $created_at
  * @property int $cycles_id_cycle
- * 
+ *
  * @property Cycle $cycle
  * @property Collection|Avis[] $avis
  * @property Collection|Etudiant[] $etudiants
@@ -26,6 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Collection|Semestre[] $semestres
  *
  * @package App\Models
+ * @method static create(array $new_niveau)
  */
 class Niveau extends Model
 {

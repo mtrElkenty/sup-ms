@@ -8,21 +8,11 @@ use Illuminate\Contracts\View\View;
 
 class ProfesseurController extends EmployeController {
     public function index(): View {
-        $professeurs = Employe::join(
-            'fonctions',
-            'employes.fonctions_id_fonction',
-            '=', 'fonctions.id_fonction'
-        )->where(
-            'fonctions.fonction',
-            'like',
-            '%professeur%'
-        )->get();
-
         return view(
             'employes.index',
             [
                 'title' => 'Professeurs',
-                'employes' => $professeurs,
+                'employes' => Employe::all(),
                 'is_prof_page' => true
             ]);
     }

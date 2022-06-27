@@ -26,15 +26,18 @@
                     <div class="card-content collapse show">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table">
+                                @if(sizeof($professeurs) == 0)
+                                    <h3>Commencez par <a href="/professeurs/ajouter">ajouter</a> des professeur</h3>
+                                @else
+                                    <table class="table">
                                     <thead>
-                                    <tr>
-                                        <th>Nom Prenom</th>
-                                        <th>Telehones</th>
-                                        <th>Email</th>
-                                        <th>Adress</th>
-                                        <th></th>
-                                    </tr>
+                                        <tr>
+                                            <th>Nom Prenom</th>
+                                            <th>Telehones</th>
+                                            <th>Email</th>
+                                            <th>Adress</th>
+                                            <th></th>
+                                        </tr>
                                     </thead>
                                     <tbody>
                                     @foreach ($professeurs as $professeur)
@@ -61,6 +64,7 @@
                                     @endforeach
                                     </tbody>
                                 </table>
+                                @endif
                             </div>
                         </div>
                     </div>

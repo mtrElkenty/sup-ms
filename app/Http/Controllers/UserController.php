@@ -11,7 +11,12 @@ class UserController extends Controller
 {
     public function login(): View
     {
-        return view('user.login', ['title' => 'Connectez Vous | SupMS']);
+        return view(
+            'user.login',
+            [
+                'title' => 'Connectez Vous | SupMS'
+            ]
+        );
     }
 
     public function authenticate(Request $request): RedirectResponse
