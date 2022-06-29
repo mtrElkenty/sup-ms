@@ -5,10 +5,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta name="description"
-        content="Chameleon Admin is a modern Bootstrap 4 webapp &amp; admin dashboard html template with a large number of components, elegant design, clean and organized code.">
-    <meta name="keywords"
-        content="admin template, Chameleon admin template, dashboard template, gradient admin template, responsive admin template, webapp, eCommerce dashboard, analytic dashboard">
     <meta name="author" content="ThemeSelect">
     <title>{{ $title }} | SupMS</title>
     <link rel="apple-touch-icon" href="{{ asset('images/logo/logo.png') }}">
@@ -22,9 +18,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('vendors/css/charts/chartist.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
     <!-- END VENDOR CSS-->
-    <!-- BEGIN CHAMELEON  CSS-->
+    <!-- BEGIN SUPMS  CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app-lite.css') }}">
-    <!-- END CHAMELEON  CSS-->
+    <!-- END SUPMS  CSS-->
     <!-- BEGIN Page Level CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/core/menu/menu-types/vertical-menu.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/core/colors/palette-gradient.css') }}">
@@ -58,10 +54,10 @@
     <!-- BEGIN PAGE VENDOR JS-->
     <script src="{{ asset('vendors/js/charts/chartist.min.js') }}" type="text/javascript"></script>
     <!-- END PAGE VENDOR JS-->
-    <!-- BEGIN CHAMELEON  JS-->
+    <!-- BEGIN SUPMS  JS-->
     <script src="{{ asset('js/core/app-menu-lite.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/core/app-lite.js') }}" type="text/javascript"></script>
-    <!-- END CHAMELEON  JS-->
+    <!-- END SUPMS  JS-->
     <!-- BEGIN PAGE LEVEL JS-->
     <script src="{{ asset('js/scripts/pages/dashboard-lite.js') }}" type="text/javascript"></script>
     <!-- END PAGE LEVEL JS-->

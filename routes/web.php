@@ -10,7 +10,7 @@ use App\Http\Controllers\FiliereController;
 use App\Http\Controllers\ParentInfoController;
 use App\Http\Controllers\NiveauController;
 use App\Http\Controllers\Home;
-
+use App\Http\Controllers\SemestreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -172,6 +172,24 @@ Route::put('/niveaux/{niveau}', [NiveauController::class, 'update'])->middleware
 
 // Modifier Une Niveau
 Route::delete('/niveaux/{niveau}', [NiveauController::class, 'delete'])->middleware('auth');
+
+
+
+// ==================================================================================================
+// Routes pour les semestres:
+// ==================================================================================================
+
+// Tous Les Semestre
+Route::get('/semestres', [SemestreController::class, 'index'])->name('semestres')->middleware('auth');
+
+// Ajouter Une Semestre
+Route::post('/semestres', [SemestreController::class, 'create'])->middleware('auth');
+
+// Modifier Une Semestre
+Route::put('/semestres/{semestre}', [SemestreController::class, 'update'])->middleware('auth');
+
+// Modifier Une Semestre
+Route::delete('/semestres/{semestre}', [SemestreController::class, 'delete'])->middleware('auth');
 
 
 // ==================================================================================================

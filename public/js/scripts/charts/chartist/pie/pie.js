@@ -2,27 +2,26 @@
     File Name: pie.js
     Description: Chartist simple pie chart
     ----------------------------------------------------------------------------------------
-    Item Name: Chameleon Admin - Modern Bootstrap 4 WebApp & Dashboard HTML Template + UI Kit
+    Item Name: SupMS
     Version: 1.0
-    Author: ThemeSelection
-    Author URL: https://themeselection.com/
+    Author: MtrElkenty
+    Author URL: https://ocalhost:8000/
 ==========================================================================================*/
 
 // Pie chart
 // ------------------------------
-$(window).on("load", function(){
-
+$(window).on("load", function () {
     var data = {
-        series: [5, 3, 4]
+        series: [5, 3, 4],
     };
 
-    var sum = function(a, b) {
+    var sum = function (a, b) {
         return a + b;
     };
 
-    new Chartist.Pie('#pie-chart', data, {
-        labelInterpolationFnc: function(value) {
-            return Math.round(value / data.series.reduce(sum) * 100) + '%';
-        }
+    new Chartist.Pie("#pie-chart", data, {
+        labelInterpolationFnc: function (value) {
+            return Math.round((value / data.series.reduce(sum)) * 100) + "%";
+        },
     });
 });

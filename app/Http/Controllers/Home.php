@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cycle;
 use App\Models\Filiere;
+use App\Models\Semestre;
 use Illuminate\Contracts\View\View;
 
 class Home extends Controller
@@ -16,7 +17,8 @@ class Home extends Controller
                 'title' => "Sup Management System",
                 'filieres' => FiliereController::index(),
                 'cycles' => CycleController::index(),
-                'niveaux' => NiveauController::index()
+                'niveaux' => NiveauController::index(),
+                'semestres' => SemestreController::index()
             ]
         );
     }

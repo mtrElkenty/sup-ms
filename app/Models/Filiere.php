@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class Filiere
@@ -32,47 +33,47 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class Filiere extends Model
 {
-	protected $table = 'filieres';
-	protected $primaryKey = 'id_filiere';
-	public $timestamps = false;
+    protected $table = 'filieres';
+    protected $primaryKey = 'id_filiere';
+    public $timestamps = false;
 
-	protected $casts = [
-		'cycles_id_cycle' => 'int'
-	];
+    protected $casts = [
+        'cycles_id_cycle' => 'int'
+    ];
 
-	protected $fillable = [
-		'code_filiere',
-		'libelle_filiere',
-		'cycles_id_cycle'
-	];
+    protected $fillable = [
+        'code_filiere',
+        'libelle_filiere',
+        'cycles_id_cycle'
+    ];
 
-	public function cycle(): BelongsTo
+    public function cycle(): BelongsTo
     {
-		return $this->belongsTo(Cycle::class, 'cycles_id_cycle');
-	}
+        return $this->belongsTo(Cycle::class, 'cycles_id_cycle');
+    }
 
-	public function avis(): HasMany
+    public function avis(): HasMany
     {
-		return $this->hasMany(Avis::class, 'filieres_id_filiere');
-	}
+        return $this->hasMany(Avis::class, 'filieres_id_filiere');
+    }
 
-	public function etudiants(): HasMany
+    public function etudiants(): HasMany
     {
-		return $this->hasMany(Etudiant::class, 'filieres_id_filiere');
-	}
+        return $this->hasMany(Etudiant::class, 'filieres_id_filiere');
+    }
 
-	public function evaluations(): HasMany
-	{
-		return $this->hasMany(Evaluation::class, 'filieres_id_filiere');
-	}
+    public function evaluations(): HasMany
+    {
+        return $this->hasMany(Evaluation::class, 'filieres_id_filiere');
+    }
 
-	public function modules(): HasMany
-	{
-		return $this->hasMany(Module::class, 'filieres_id_filiere');
-	}
+    public function modules(): HasMany
+    {
+        return $this->hasMany(Module::class, 'filieres_id_filiere');
+    }
 
-	public function seances(): HasMany
-	{
-		return $this->hasMany(Seance::class, 'filieres_id_filiere');
-	}
+    public function seances(): HasMany
+    {
+        return $this->hasMany(Seance::class, 'filieres_id_filiere');
+    }
 }

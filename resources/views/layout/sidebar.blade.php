@@ -1,4 +1,4 @@
-<div class="main-menu menu-fixed menu-light menu-accordion    menu-shadow " data-scroll-to-active="true"
+<div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true"
     data-img="{{ asset('/images/backgrounds/02.jpg') }}">
     <div class="navbar-header">
         <ul class="nav navbar-nav flex-row">
@@ -17,14 +17,20 @@
             <li class="{{ Route::currentRouteName() == 'fonctions' ? 'active' : 'nav-item' }}"><a href="/fonctions"><i
                         class="la la-suitcase"></i><span class="menu-title" data-i18n="">Fonctions</span></a>
             </li>
-            <li class="{{ in_array(Route::currentRouteName(), ['employes', 'ajouter-employe', 'modifier-employe'])  ? 'active' : 'nav-item' }}"><a href="/employes"><i
-                        class="la la-users"></i><span class="menu-title" data-i18n="">Employes</span></a>
+            <li
+                class="{{ in_array(Route::currentRouteName(), ['employes', 'ajouter-employe', 'modifier-employe']) ? 'active' : 'nav-item' }}">
+                <a href="/employes"><i class="la la-users"></i><span class="menu-title"
+                        data-i18n="">Employes</span></a>
             </li>
-            <li class="{{ in_array(Route::currentRouteName(), ['professeurs', 'ajouter-professeur', 'modifier-professeur'])  ? 'active' : 'nav-item' }}"><a href="/professeurs"><i
-                        class="la la-book"></i><span class="menu-title" data-i18n="">Professeurs</span></a>
+            <li
+                class="{{ in_array(Route::currentRouteName(), ['professeurs', 'ajouter-professeur', 'modifier-professeur']) ? 'active' : 'nav-item' }}">
+                <a href="/professeurs"><i class="la la-book"></i><span class="menu-title"
+                        data-i18n="">Professeurs</span></a>
             </li>
-            <li class="{{ in_array(Route::currentRouteName(), ['etudiants', 'ajouter-etudiant', 'modifier-etudiant'])  ? 'active' : 'nav-item' }}"><a href="/etudiants"><i
-                        class="la la-book"></i><span class="menu-title" data-i18n="">Etudiants</span></a>
+            <li
+                class="{{ in_array(Route::currentRouteName(), ['etudiants', 'ajouter-etudiant', 'modifier-etudiant']) ? 'active' : 'nav-item' }}">
+                <a href="/etudiants"><i class="la la-graduation-cap"></i><span class="menu-title"
+                        data-i18n="">Etudiants</span></a>
             </li>
         </ul>
     </div>

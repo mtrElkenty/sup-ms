@@ -12,7 +12,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
-class EtudiantController extends Controller {
+class EtudiantController extends Controller
+{
     public function index(): View
     {
         return view('etudiants.index', [
@@ -21,7 +22,7 @@ class EtudiantController extends Controller {
         ]);
     }
 
-    public function ajouter (): View
+    public function ajouter(): View
     {
         return view(
             'etudiants.ajouter',
