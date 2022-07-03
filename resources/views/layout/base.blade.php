@@ -40,6 +40,24 @@
         <div class="app-content content">
             <div class="content-wrapper">
                 <div class="content-wrapper-before"></div>
+                @if ($message = Session::get('message'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ $message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+                @foreach ($errors->toArray() as $key => $value)
+                    @foreach ($value as $error)
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ $error }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endforeach
+                @endforeach
                 @yield('content')
             </div>
         </div>

@@ -13,12 +13,12 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class Module
  *
- * @property string $libelle_module
  * @property int $id_modules
- * @property Carbon $created_at
  * @property string $code_module
+ * @property string $libelle_module
  * @property int $filieres_id_filiere
  * @property int $semestres_id_semestre
+ * @property Carbon $created_at
  *
  * @property Semestre $semestre
  * @property Filiere $filiere

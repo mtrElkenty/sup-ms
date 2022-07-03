@@ -10,7 +10,11 @@ use App\Http\Controllers\FiliereController;
 use App\Http\Controllers\ParentInfoController;
 use App\Http\Controllers\NiveauController;
 use App\Http\Controllers\Home;
+use App\Http\Controllers\MatiereController;
+use App\Http\Controllers\ModuleController;
+use App\Http\Controllers\SeanceController;
 use App\Http\Controllers\SemestreController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -190,6 +194,64 @@ Route::put('/semestres/{semestre}', [SemestreController::class, 'update'])->midd
 
 // Modifier Une Semestre
 Route::delete('/semestres/{semestre}', [SemestreController::class, 'delete'])->middleware('auth');
+
+
+
+// ==================================================================================================
+// Routes pour les modules:
+// ==================================================================================================
+
+// Tous Les Module
+Route::get('/modules', [ModuleController::class, 'index'])->name('modules')->middleware('auth');
+
+// Ajouter Une Module
+Route::post('/modules', [ModuleController::class, 'create'])->middleware('auth');
+
+// Modifier Une Module
+Route::put('/modules/{module}', [ModuleController::class, 'update'])->middleware('auth');
+
+// Modifier Une Module
+Route::delete('/modules/{module}', [ModuleController::class, 'delete'])->middleware('auth');
+
+
+
+// ==================================================================================================
+// Routes pour les matieres:
+// ==================================================================================================
+
+// Tous Les Matiere
+Route::get('/matieres', [MatiereController::class, 'index'])->name('matieres')->middleware('auth');
+
+Route::get('/matieres/{id_matiere}', [MatiereController::class, 'show'])->middleware('auth');
+
+// Ajouter Une Matiere
+Route::post('/matieres', [MatiereController::class, 'create'])->middleware('auth');
+
+// Modifier Une Matiere
+Route::put('/matieres/{matiere}', [MatiereController::class, 'update'])->middleware('auth');
+
+// Modifier Une Matiere
+Route::delete('/matieres/{matiere}', [MatiereController::class, 'delete'])->middleware('auth');
+
+
+
+// ==================================================================================================
+// Routes pour les seances:
+// ==================================================================================================
+
+// Tous Les Seance
+Route::get('/seances', [SeanceController::class, 'index'])->name('seances')->middleware('auth');
+
+Route::get('/seances/{id_seance}', [SeanceController::class, 'show'])->middleware('auth');
+
+// Ajouter Une Seance
+Route::post('/seances', [SeanceController::class, 'create'])->middleware('auth');
+
+// Modifier Une Seance
+Route::put('/seances/{seance}', [SeanceController::class, 'update'])->middleware('auth');
+
+// Modifier Une Seance
+Route::delete('/seances/{seance}', [SeanceController::class, 'delete'])->middleware('auth');
 
 
 // ==================================================================================================

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Seance;
 use App\Models\Semestre;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
@@ -41,5 +42,11 @@ class SemestreController extends Controller
 
         $semestre->update($new_data);
         return back()->with('message', 'Semestre Modifier Svec Succee');
+    }
+
+    public function delete(Semestre $semestre)
+    {
+        $semestre->delete();
+        return back()->with('message', 'Semestre Supprime Avec Succee');
     }
 }

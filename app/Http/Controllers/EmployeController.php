@@ -14,8 +14,8 @@ class EmployeController extends Controller
     public function index(): View
     {
         return view(
+            'employes.index',
             [
-                'employes.index',
                 'title' => 'Employes',
                 'employes' => Employe::all()
             ]

@@ -32,6 +32,11 @@
                 <a href="/etudiants"><i class="la la-graduation-cap"></i><span class="menu-title"
                         data-i18n="">Etudiants</span></a>
             </li>
+            <li
+                class="{{ in_array(Route::currentRouteName(), ['seances', 'ajouter-seance', 'modifier-seance']) ? 'active' : 'nav-item' }}">
+                <a href="/seances"><i class="la la-calendar"></i><span class="menu-title"
+                        data-i18n="">Seances</span></a>
+            </li>
         </ul>
     </div>
     <div class="navigation-background"></div>

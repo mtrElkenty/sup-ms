@@ -18,7 +18,9 @@ class Home extends Controller
                 'filieres' => FiliereController::index(),
                 'cycles' => CycleController::index(),
                 'niveaux' => NiveauController::index(),
-                'semestres' => SemestreController::index()
+                'semestres' => SemestreController::index(),
+                'modules' => ModuleController::index(),
+                'matieres' => MatiereController::index()
             ]
         );
     }

@@ -35,62 +35,69 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Seance extends Model
 {
-	protected $table = 'seances';
-	protected $primaryKey = 'id_seance';
-	public $timestamps = false;
+    protected $table = 'seances';
+    protected $primaryKey = 'id_seance';
+    public $timestamps = false;
 
-	protected $casts = [
-		'seance_rattrapage' => 'int',
-		'horaires_id_horaire' => 'int',
-		'jours_id_jour' => 'int',
-		'professeurs_id_professeur' => 'int',
-		'niveaux_id_niveau' => 'int',
-		'filieres_id_filiere' => 'int',
-		'matieres_id_matiere' => 'int'
-	];
+    protected $casts = [
+        'seance_rattrapage' => 'int',
+        'horaires_id_horaire' => 'int',
+        'jours_id_jour' => 'int',
+        'professeurs_id_professeur' => 'int',
+        'niveaux_id_niveau' => 'int',
+        'filieres_id_filiere' => 'int',
+        'matieres_id_matiere' => 'int',
+        'matieres_id_matiere' => 'int'
+    ];
 
-	protected $fillable = [
-		'seance_rattrapage',
-		'horaires_id_horaire',
-		'jours_id_jour',
-		'professeurs_id_professeur',
-		'niveaux_id_niveau',
-		'filieres_id_filiere',
-		'matieres_id_matiere'
-	];
+    protected $fillable = [
+        'seance_rattrapage',
+        'horaires_id_horaire',
+        'jours_id_jour',
+        'professeurs_id_professeur',
+        'niveaux_id_niveau',
+        'filieres_id_filiere',
+        'matieres_id_matiere',
+        'employes_id_employe'
+    ];
 
-	public function professeur()
-	{
-		return $this->belongsTo(Professeur::class, 'professeurs_id_professeur');
-	}
+    public function professeur()
+    {
+        return $this->belongsTo(Employe::class, 'professeurs_id_professeur');
+    }
 
-	public function horaire()
-	{
-		return $this->belongsTo(Horaire::class, 'horaires_id_horaire');
-	}
+    public function employe()
+    {
+        return $this->belongsTo(Employe::class, 'employes_id_employe');
+    }
 
-	public function filiere()
-	{
-		return $this->belongsTo(Filiere::class, 'filieres_id_filiere');
-	}
+    public function horaire()
+    {
+        return $this->belongsTo(Horaire::class, 'horaires_id_horaire');
+    }
 
-	public function niveau()
-	{
-		return $this->belongsTo(Niveau::class, 'niveaux_id_niveau');
-	}
+    public function filiere()
+    {
+        return $this->belongsTo(Filiere::class, 'filieres_id_filiere');
+    }
 
-	public function jour()
-	{
-		return $this->belongsTo(Jour::class, 'jours_id_jour');
-	}
+    public function niveau()
+    {
+        return $this->belongsTo(Niveau::class, 'niveaux_id_niveau');
+    }
 
-	public function matiere()
-	{
-		return $this->belongsTo(Matiere::class, 'matieres_id_matiere');
-	}
+    public function jour()
+    {
+        return $this->belongsTo(Jour::class, 'jours_id_jour');
+    }
 
-	public function presences()
-	{
-		return $this->hasMany(Presence::class, 'seances_id_seance');
-	}
+    public function matiere()
+    {
+        return $this->belongsTo(Matiere::class, 'matieres_id_matiere');
+    }
+
+    public function presences()
+    {
+        return $this->hasMany(Presence::class, 'seances_id_seance');
+    }
 }

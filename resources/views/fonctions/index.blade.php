@@ -28,43 +28,47 @@
                     <div class="card-content collapse show">
                         <div class="card-body">
                             <div class="table-responsive">
-                                @if(sizeof($fonctions) == 0)
-                                    <h3>Commencez par <a href="/fonctions/ajouter">ajouter</a> des fonctions</h3>
+                                @if (sizeof($fonctions) == 0)
+                                    <h3>Commencez par
+                                        <a href="#"data-toggle="modal" data-target="#ajouterFonction">
+                                            ajouter
+                                        </a>
+                                        des fonctions
+                                    </h3>
                                 @else
                                     <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Titre</th>
-                                            <th>Description</th>
-                                            <th>Date Ajout</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($fonctions as $fonction)
+                                        <thead>
                                             <tr>
-                                                <th id ="{{ $fonction->id_fonction . '-fonction' }}" scope="row">
-                                                    {{ $fonction->fonction }}</th>
-                                                <td id="{{ $fonction->id_fonction . '-description' }}">
-                                                    {{ $fonction->description }}</td>
-                                                <td>{{ $fonction->created_at }}</td>
-                                                <td class="table-actions">
-                                                    <button type="button" class="edit"
-                                                        data-toggle="modal"
-                                                        onclick="preparerModifierFonctionModel({{ $fonction->id_fonction }})"
-                                                        data-target="#modifierFonction">
-                                                        <i class="la la-pencil"></i>
-                                                    </button>
-                                                    <button type="button" class="delete"
-                                                        onclick="preparerSuprimerFonctionModel({{ $fonction->id_fonction }})"
-                                                        data-toggle="modal" data-target="#supprimerFonction">
-                                                        <i class="la la-trash-o"></i>
-                                                    </button>
-                                                </td>
+                                                <th>Titre</th>
+                                                <th>Description</th>
+                                                <th>Date Ajout</th>
+                                                <th></th>
                                             </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($fonctions as $fonction)
+                                                <tr>
+                                                    <th id="{{ $fonction->id_fonction . '-fonction' }}" scope="row">
+                                                        {{ $fonction->fonction }}</th>
+                                                    <td id="{{ $fonction->id_fonction . '-description' }}">
+                                                        {{ $fonction->description }}</td>
+                                                    <td>{{ $fonction->created_at }}</td>
+                                                    <td class="table-actions">
+                                                        <button type="button" class="edit" data-toggle="modal"
+                                                            onclick="preparerModifierFonctionModel({{ $fonction->id_fonction }})"
+                                                            data-target="#modifierFonction">
+                                                            <i class="la la-pencil"></i>
+                                                        </button>
+                                                        <button type="button" class="delete"
+                                                            onclick="preparerSuprimerFonctionModel({{ $fonction->id_fonction }})"
+                                                            data-toggle="modal" data-target="#supprimerFonction">
+                                                            <i class="la la-trash-o"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                                 @endif
                             </div>
                         </div>

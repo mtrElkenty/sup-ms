@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2022 at 04:38 PM
+-- Generation Time: Jul 02, 2022 at 04:46 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -62,6 +62,15 @@ CREATE TABLE `cycles` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `cycles`
+--
+
+INSERT INTO `cycles` (`id_cycle`, `libelle_cycle`, `nombre_annees`, `created_at`) VALUES
+(1, 'Licence', 3, '2022-06-19 16:45:15'),
+(2, 'Master', 2, '2022-06-19 16:45:15'),
+(3, 'Cycle Thechinque', 2, '2022-06-20 15:47:43');
+
 -- --------------------------------------------------------
 
 --
@@ -91,8 +100,10 @@ CREATE TABLE `employes` (
 --
 
 INSERT INTO `employes` (`id_employe`, `nom`, `prenom`, `NNI`, `telephone_1`, `telephone_2`, `email`, `adress`, `ville`, `pays`, `sexe`, `date_naissance`, `lieu_naissance`, `created_at`, `fonctions_id_fonction`) VALUES
-(1, 'Moctar', 'Abdallahi', '1241512385', '33101418', '47302788', 'mtrelkenty@gmail.com', 'Dar Barka', 'Nouakchott', 'Mauritanie', 'homme', '1994-07-27', 'Toujounine', '2022-05-20 17:07:56', 1),
-(2, 'Salem', 'Ahmed', '8228465122', '32323232', '42424242', 'ahmedsalem@gmail.com', 'Ain Talh', 'Nouakchott', 'Mauritanie', 'homme', '1968-12-31', 'Atar', '2022-05-25 21:31:03', 4);
+(1, 'Abdallahi', 'Moctar', '1241512385', '33101418', '47302788', 'mtrelkenty@gmail.com', 'Dar Barka', 'Nouakchott', 'Mauritanie', 'homme', '1994-07-27', 'Toujounine', '2022-05-20 17:07:56', 1),
+(2, 'Salem', 'Ahmed', '8228465122', '32323232', '42424242', 'ahmedsalem@gmail.com', 'Ain Talh', 'Nouakchott', 'Mauritanie', 'homme', '1968-12-31', 'Atar', '2022-05-25 21:31:03', 4),
+(4, 'Tourad', 'Hamed', '1231313121', '22121314', '31242523', 'tourad@gmail.com', 'TVZ', 'Nouakchott', 'Mauritanie', 'homme', '1970-03-01', 'Atar', '2022-05-28 10:28:09', 8),
+(6, 'Ab', 'Ahmed', '0102030504', '22015448', NULL, 'ahmedab@gmail.com', 'Ksar', 'Nouakchott', 'Mauritanie', 'homme', '1990-01-01', 'Toujounine', '2022-06-15 14:20:01', 8);
 
 -- --------------------------------------------------------
 
@@ -120,6 +131,15 @@ CREATE TABLE `etudiants` (
   `niveaux_id_niveau` int(10) NOT NULL,
   `filieres_id_filiere` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `etudiants`
+--
+
+INSERT INTO `etudiants` (`id_etudiant`, `matricule`, `nom`, `prenom`, `NNI`, `telephone`, `email`, `adress`, `ville`, `pays`, `sexe`, `date_naissance`, `lieu_naissance`, `situation_famille`, `created_at`, `parents_infos_id_parent`, `niveaux_id_niveau`, `filieres_id_filiere`) VALUES
+(1, '011.22.23', 'Abdallahi', 'Fatimetou', '1212323213', '36660462', 'lafa@yahoo.com', 'Ain Talh', 'Nouakchott', 'Mauritanie', 'femme', '1992-06-12', 'Toujounine', 'Situation Famille', '2022-06-23 16:21:59', 1, 3, 1),
+(2, '012.22.23', 'Abdallahi', 'Ahmed', '1212131311', '4898592', 'ahmedab@gmail.com', 'Ksar', 'Nouakchott', 'Mauritanie', 'homme', '1998-12-05', 'Toujounine', 'celibataire', '2022-06-24 17:51:25', 1, 1, 1),
+(3, '89.20.21', 'Lekbar', 'Med Salem', '5656565656', '34343434', 'medsalem@gmail.com', 'Ksar', 'Mouakchott', 'Mauritanie', 'homme', '2000-12-12', 'Atar', 'celibataire', '2022-06-26 11:27:56', 3, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -153,6 +173,14 @@ CREATE TABLE `filieres` (
   `cycles_id_cycle` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `filieres`
+--
+
+INSERT INTO `filieres` (`id_filiere`, `code_filiere`, `libelle_filiere`, `created_at`, `cycles_id_cycle`) VALUES
+(1, 'D.I', 'Developement Informatique', '2022-06-20 21:12:10', 1),
+(2, 'S.R', 'Système Réseau', '2022-06-20 21:12:06', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -171,11 +199,13 @@ CREATE TABLE `fonctions` (
 --
 
 INSERT INTO `fonctions` (`id_fonction`, `fonction`, `description`, `created_at`) VALUES
-(1, 'Createur', 'Developpeur / Createur du Site ', '2022-05-20 17:05:22'),
+(1, 'Createur', 'Developpeur / Createur du Site', '2022-05-20 17:05:22'),
 (2, 'Directeur des Etudes', 'Responsable de la gestion des etdiants et ces cours', '2022-05-21 21:33:19'),
 (4, 'Comptabe', 'S\'ocuppe des affaires financiaires', '2022-05-22 19:25:03'),
 (5, 'Directeur Perdagogique', 'Directeur generale. Responsable de tous', '2022-05-22 21:23:48'),
-(7, 'Assistant Directeur des Etudes', 'Assiste la direction des etudes dans la gestion.', '2022-05-25 21:47:39');
+(7, 'Assistant Directeur des Etudes', 'Assiste la direction des etudes dans la gestion.', '2022-05-25 21:47:39'),
+(8, 'Professeur', NULL, '2022-05-27 16:00:25'),
+(9, 'Scurite', NULL, '2022-06-20 15:35:19');
 
 -- --------------------------------------------------------
 
@@ -218,6 +248,16 @@ CREATE TABLE `horaires` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `horaires`
+--
+
+INSERT INTO `horaires` (`id_horaire`, `du`, `a`, `created_at`) VALUES
+(1, '08:30:00', '10:00:00', '2022-06-30 16:09:54'),
+(2, '10:15:00', '11:45:00', '2022-06-30 16:09:54'),
+(3, '12:15:00', '13:45:00', '2022-06-30 16:11:19'),
+(4, '14:00:00', '15:30:00', '2022-06-30 16:11:19');
+
 -- --------------------------------------------------------
 
 --
@@ -229,6 +269,19 @@ CREATE TABLE `jours` (
   `jour` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `jours`
+--
+
+INSERT INTO `jours` (`id_jour`, `jour`, `created_at`) VALUES
+(1, 'Lundi', '2022-06-30 16:01:22'),
+(2, 'Mardi', '2022-06-30 16:01:22'),
+(3, 'Mercredi ', '2022-06-30 16:01:40'),
+(4, 'Jeudi ', '2022-06-30 16:01:40'),
+(5, 'Vendredi ', '2022-06-30 16:02:02'),
+(6, 'Samedi ', '2022-06-30 16:02:02'),
+(7, 'Dimanche', '2022-06-30 16:02:10');
 
 -- --------------------------------------------------------
 
@@ -244,6 +297,14 @@ CREATE TABLE `matieres` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `modules_id_modules` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `matieres`
+--
+
+INSERT INTO `matieres` (`id_matiere`, `code_matiere`, `libelle_matiere`, `coefficient`, `created_at`, `modules_id_modules`) VALUES
+(1, 'IN001', 'Anglais Commerciale', 2, '2022-06-30 15:48:36', 1),
+(3, 'IN002', 'Espagnol', 2, '2022-07-01 10:06:49', 1);
 
 -- --------------------------------------------------------
 
@@ -288,6 +349,15 @@ CREATE TABLE `modules` (
   `semestres_id_semestre` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `modules`
+--
+
+INSERT INTO `modules` (`libelle_module`, `id_modules`, `created_at`, `code_module`, `filieres_id_filiere`, `semestres_id_semestre`) VALUES
+('Langues et Communication', 1, '2022-06-29 15:10:43', 'Module 1', 1, 1),
+('Base des Donnees Avancésces', 3, '2022-07-01 19:28:57', 'Module 2', 1, 8),
+('Génie Logiciel Objet', 4, '2022-07-01 19:29:41', 'Module 3', 1, 8);
+
 -- --------------------------------------------------------
 
 --
@@ -300,6 +370,15 @@ CREATE TABLE `niveaux` (
   `created_at` timestamp NULL DEFAULT NULL,
   `cycles_id_cycle` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `niveaux`
+--
+
+INSERT INTO `niveaux` (`id_niveau`, `libelle_niveau`, `created_at`, `cycles_id_cycle`) VALUES
+(1, '1ère Annee', NULL, 1),
+(2, '2eme Année', NULL, 1),
+(3, '3ème Année', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -343,8 +422,21 @@ CREATE TABLE `paiement_etudiants` (
 
 CREATE TABLE `parents_infos` (
   `id_parent` int(10) NOT NULL,
+  `nom_pere` varchar(255) NOT NULL,
+  `prenom_pere` varchar(255) NOT NULL,
+  `nom_mere` varchar(255) NOT NULL,
+  `prenom_mere` varchar(255) NOT NULL,
+  `contact` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `parents_infos`
+--
+
+INSERT INTO `parents_infos` (`id_parent`, `nom_pere`, `prenom_pere`, `nom_mere`, `prenom_mere`, `contact`, `created_at`) VALUES
+(1, 'Ahmed', 'Abdallahi', 'Mohamed Lemine', 'Aicha', '46422774', NULL),
+(3, 'xxx', 'xxx', 'xxx', 'xxx', '11111111', NULL);
 
 -- --------------------------------------------------------
 
@@ -408,9 +500,19 @@ CREATE TABLE `seances` (
 CREATE TABLE `semestres` (
   `id_semestre` int(10) NOT NULL,
   `libelle_semestre` varchar(255) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `niveaux_id_niveau` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `semestres`
+--
+
+INSERT INTO `semestres` (`id_semestre`, `libelle_semestre`, `created_at`, `niveaux_id_niveau`) VALUES
+(1, '1er Semestre', '2022-06-29 22:00:13', 1),
+(2, '2eme Semestre', '2022-06-28 22:01:50', 1),
+(8, '3eme Semestre', '2022-07-01 19:28:24', 2),
+(9, '4eme Semestre', '2022-07-02 13:12:01', 2);
 
 -- --------------------------------------------------------
 
@@ -645,7 +747,8 @@ ALTER TABLE `seances`
   ADD KEY `FKseances321330` (`niveaux_id_niveau`),
   ADD KEY `FKseances483396` (`filieres_id_filiere`),
   ADD KEY `FKseances903323` (`matieres_id_matiere`),
-  ADD KEY `FKseances457381` (`employes_id_employe`);
+  ADD KEY `FKseances457381` (`employes_id_employe`),
+  ADD KEY `FKseances123323` (`professeurs_id_professeur`);
 
 --
 -- Indexes for table `semestres`
@@ -692,19 +795,19 @@ ALTER TABLE `avis`
 -- AUTO_INCREMENT for table `cycles`
 --
 ALTER TABLE `cycles`
-  MODIFY `id_cycle` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cycle` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `employes`
 --
 ALTER TABLE `employes`
-  MODIFY `id_employe` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_employe` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `etudiants`
 --
 ALTER TABLE `etudiants`
-  MODIFY `id_etudiant` bigint(19) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_etudiant` bigint(19) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `evaluations`
@@ -716,13 +819,13 @@ ALTER TABLE `evaluations`
 -- AUTO_INCREMENT for table `filieres`
 --
 ALTER TABLE `filieres`
-  MODIFY `id_filiere` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_filiere` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `fonctions`
 --
 ALTER TABLE `fonctions`
-  MODIFY `id_fonction` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_fonction` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `frais`
@@ -740,19 +843,19 @@ ALTER TABLE `heures_effectuees`
 -- AUTO_INCREMENT for table `horaires`
 --
 ALTER TABLE `horaires`
-  MODIFY `id_horaire` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_horaire` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `jours`
 --
 ALTER TABLE `jours`
-  MODIFY `id_jour` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_jour` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `matieres`
 --
 ALTER TABLE `matieres`
-  MODIFY `id_matiere` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_matiere` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `matieres_evaluations`
@@ -770,13 +873,13 @@ ALTER TABLE `matieres_pofesseurs`
 -- AUTO_INCREMENT for table `modules`
 --
 ALTER TABLE `modules`
-  MODIFY `id_modules` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_modules` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `niveaux`
 --
 ALTER TABLE `niveaux`
-  MODIFY `id_niveau` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_niveau` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `notes`
@@ -794,7 +897,7 @@ ALTER TABLE `paiement_etudiants`
 -- AUTO_INCREMENT for table `parents_infos`
 --
 ALTER TABLE `parents_infos`
-  MODIFY `id_parent` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_parent` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `presences`
@@ -812,13 +915,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `seances`
 --
 ALTER TABLE `seances`
-  MODIFY `id_seance` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_seance` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `semestres`
 --
 ALTER TABLE `semestres`
-  MODIFY `id_semestre` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_semestre` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `sessions_rattrapages`
@@ -840,15 +943,9 @@ ALTER TABLE `users`
 -- Constraints for table `avis`
 --
 ALTER TABLE `avis`
-  ADD CONSTRAINT `FKavis445396` FOREIGN KEY (`niveaux_id_niveau`) REFERENCES `niveaux` (`id_niveau`),
-  ADD CONSTRAINT `FKavis721467` FOREIGN KEY (`filieres_id_filiere`) REFERENCES `filieres` (`id_filiere`),
-  ADD CONSTRAINT `FKavis747482` FOREIGN KEY (`employes_id_employe`) REFERENCES `employes` (`id_employe`);
-
---
--- Constraints for table `employes`
---
-ALTER TABLE `employes`
-  ADD CONSTRAINT `FKemployes688295` FOREIGN KEY (`fonctions_id_fonction`) REFERENCES `fonctions` (`id_fonction`);
+  ADD CONSTRAINT `FKavis445396` FOREIGN KEY (`niveaux_id_niveau`) REFERENCES `niveaux` (`id_niveau`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FKavis721467` FOREIGN KEY (`filieres_id_filiere`) REFERENCES `filieres` (`id_filiere`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FKavis747482` FOREIGN KEY (`employes_id_employe`) REFERENCES `employes` (`id_employe`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `etudiants`
@@ -870,7 +967,7 @@ ALTER TABLE `evaluations`
 -- Constraints for table `filieres`
 --
 ALTER TABLE `filieres`
-  ADD CONSTRAINT `FKfilieres875897` FOREIGN KEY (`cycles_id_cycle`) REFERENCES `cycles` (`id_cycle`);
+  ADD CONSTRAINT `FKfilieres875897` FOREIGN KEY (`cycles_id_cycle`) REFERENCES `cycles` (`id_cycle`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `frais`
@@ -917,7 +1014,7 @@ ALTER TABLE `modules`
 -- Constraints for table `niveaux`
 --
 ALTER TABLE `niveaux`
-  ADD CONSTRAINT `FKniveaux752647` FOREIGN KEY (`cycles_id_cycle`) REFERENCES `cycles` (`id_cycle`);
+  ADD CONSTRAINT `FKniveaux752647` FOREIGN KEY (`cycles_id_cycle`) REFERENCES `cycles` (`id_cycle`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `notes`
@@ -946,18 +1043,15 @@ ALTER TABLE `presences`
 -- Constraints for table `seances`
 --
 ALTER TABLE `seances`
-  ADD CONSTRAINT `FKseances321330` FOREIGN KEY (`niveaux_id_niveau`) REFERENCES `niveaux` (`id_niveau`),
-  ADD CONSTRAINT `FKseances35255` FOREIGN KEY (`horaires_id_horaire`) REFERENCES `horaires` (`id_horaire`),
-  ADD CONSTRAINT `FKseances457381` FOREIGN KEY (`employes_id_employe`) REFERENCES `employes` (`id_employe`),
+  ADD CONSTRAINT `FKseances123323` FOREIGN KEY (`professeurs_id_professeur`) REFERENCES `employes` (`id_employe`),
   ADD CONSTRAINT `FKseances483396` FOREIGN KEY (`filieres_id_filiere`) REFERENCES `filieres` (`id_filiere`),
-  ADD CONSTRAINT `FKseances716533` FOREIGN KEY (`jours_id_jour`) REFERENCES `jours` (`id_jour`),
   ADD CONSTRAINT `FKseances903323` FOREIGN KEY (`matieres_id_matiere`) REFERENCES `matieres` (`id_matiere`);
 
 --
 -- Constraints for table `semestres`
 --
 ALTER TABLE `semestres`
-  ADD CONSTRAINT `FKsemestres239110` FOREIGN KEY (`niveaux_id_niveau`) REFERENCES `niveaux` (`id_niveau`);
+  ADD CONSTRAINT `FKsemestres239110` FOREIGN KEY (`niveaux_id_niveau`) REFERENCES `niveaux` (`id_niveau`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `sessions_rattrapages`

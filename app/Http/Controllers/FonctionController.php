@@ -49,4 +49,3 @@ class FonctionController extends Controller
         return back()->with('message', 'Fonction Supprime Avec Succee');
     }
 }
-

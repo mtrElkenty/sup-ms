@@ -4,37 +4,40 @@
     border-bottom: 1px solid #e3ebf3 !important;
 }
 
-.table-actions > .edit {
+.table-actions > .edit,
+.seance-actions > .edit {
     border: 1px solid #0d6aad;
     width: 30px;
     height: 30px;
     margin: 3px;
     padding: 4px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     color: #0d6aad;
     border-radius: 100%;
     cursor: pointer;
-
 }
 
-.table-actions > .edit:hover {
+.table-actions > .edit:hover,
+.seance-actions > .edit:hover {
     background-color: #0d6aad;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
-.table-actions > .delete {
+.table-actions > .delete,
+.seance-actions > .delete {
     border: 1px solid #fa626b;
     width: 30px;
     height: 30px;
     margin: 3px;
     padding: 4px;
     background-color: #fa626b;
-    color: #FFFFFF;
+    color: #ffffff;
     border-radius: 100%;
     cursor: pointer;
 }
 
-.table-actions > .delete:hover {
-    background-color: #FFFFFF;
+.table-actions > .delete:hover,
+.seance-actions > .delete:hover {
+    background-color: #ffffff;
     color: #fa626b;
 }
